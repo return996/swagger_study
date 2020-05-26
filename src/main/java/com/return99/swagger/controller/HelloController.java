@@ -31,6 +31,7 @@ public class HelloController {
     @ApiOperation("Post测试类")
     @GetMapping("/postt")
     public User postt(@ApiParam("用户名") User user) {
+        int i = 5 / 0;
         return user;
     }
 
