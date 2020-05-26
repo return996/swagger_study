@@ -19,6 +19,21 @@ import static springfox.documentation.service.ApiInfo.DEFAULT_CONTACT;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    @Bean
+    public Docket docket1() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("A");
+    }
+
+    @Bean
+    public Docket docket2() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("B");
+    }
+
+    @Bean
+    public Docket docket3() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("C");
+    }
+
     // 配置了Swagger的Docket的bean实例
     @Bean
     public Docket docket(Environment environment) {
@@ -32,6 +47,7 @@ public class SwaggerConfig {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .groupName("return996")
                 .enable(true)
                 .select()
                 // RequestHandlerSelectors 配置要扫描的接口方式
